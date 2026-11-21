@@ -1,6 +1,6 @@
 models:
   - name: stg_jaffle_shop__customers
-    description: The grain of this table is one unique customer per row.
+    description: Staged model for our customers table. The grain of this table is one unique customer per row.
     columns:
       - name: customer_id
         description: Primary key for customers table.
@@ -9,7 +9,7 @@ models:
           - not_null
           
   - name: stg_jaffle_shop__orders
-    description: One order per row.
+    description: Staged model of raw orders table. One order per row.
     columns:
       - name: order_id
         description: Primary key for orders table.
