@@ -1,0 +1,32 @@
+sources:
+  - name: jaffle_shop
+    database: dbt-tutorial
+    schema: jaffle_shop
+    description: The raw postgreSQL database to get familiar with dbT.
+    config:
+      freshness:
+        warn_after:
+          count: 12
+          period: hour
+        error_after:
+          count: 1
+          period: day
+      loaded_at_field: _etl_loaded_at
+    tables:
+      - name: customers
+        columns:
+          - name: id
+            description: Primary key for raw customers table.
+            data_tests:
+              - unique
+              - not_null
+        config:
+            freshness: null
+      - name: orders
+        columns:
+          - name: id
+            description: Primary key for raw orders table.
+            data_tests:
+              - unique
+              - not_null
+              
